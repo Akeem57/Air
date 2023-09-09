@@ -21,7 +21,8 @@ if ARGV.length != 1
 end
 
 def all_words_in_a_string(sentence,separator)
-    sentence.split(separator)
+    words_in_a_tab = sentence.split(separator)
+    return words_in_a_tab
 end
 
 sentence = ARGV[0]
