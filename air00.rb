@@ -15,3 +15,18 @@ Aﬃcher error et quitter le programme en cas de problèmes d’arguments.
 
 =end
 
+if ARGV.length != 1 
+    puts "error"
+    exit
+end
+
+def all_words_in_a_string(sentence,separator)
+    sentence.split(separator)
+end
+
+sentence = ARGV[0]
+separator = /[\s\t\n]+/
+
+words = all_words_in_a_string(sentence, separator)
+
+puts words
