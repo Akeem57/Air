@@ -14,3 +14,22 @@ $> python exo.py “je” “teste” “des” “trucs” “ “
 Je teste des trucs
 Aﬃcher error et quitter le programme en cas de problèmes d’arguments.
 =end
+
+
+if ARGV.length <= 1
+    puts "error"
+    exit
+end
+
+def make_sentence(arguments, separator)
+    result = arguments.join(separator)
+    return result
+end
+
+arguments = ARGV
+separator = " "
+
+sentence = make_sentence(arguments,separator)
+
+print sentence
+puts ""
