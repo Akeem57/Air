@@ -15,14 +15,18 @@ if ARGV.length <= 2
     exit
 end
 
-arguments = ARGV
+def who_isnt_duplicated(arguments)
+    resultats = arguments.map do |arg|
+        doublon = arguments.count(arg) > 1
+        doublon ? " " : arg
+    end
 
-resultats = arguments.map do |arg|
-  doublon = arguments.count(arg) > 1
-  doublon ? " " : arg
+    resultats.reject! {|arg| arg == " "}
+    return resultats
 end
 
-resultats.reject! {|arg| arg == " "}
+arguments = ARGV
+resultats = who_isnt_duplicated(arguments)
 
 if resultats.empty?
     puts "Auncun intrus"
