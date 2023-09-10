@@ -17,7 +17,7 @@ end
 
 def who_isnt_duplicated(arguments)
     resultats = arguments.map do |arg|
-        doublon = arguments.count(arg) > 1
+        doublon = arguments.count(arg) > 1 #traduction : compte si chaque arg du tableau arguments est suérieur à 1
         doublon ? " " : arg
     end
 
