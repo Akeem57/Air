@@ -20,12 +20,18 @@ if ARGV.length < 2 || !ARGV.all?{|args| args.match?(/\A\d+\z/)}
     exit
 end
 
-def my_quick_sort(args)
-    result = args.join(" ")
-    return result
-end
+arr = ARGV.map(&:to_i)
 
-args = ARGV.sort
-
-puts my_quick_sort(args)
+def quicksort(arr)
+    return arr if arr.length <= 1
+  
+    pivot = arr.delete_at(rand(arr.length)) # choisit un élément pivot de manière aléatoire dans le tableau arr.
+    left, right = arr.partition { |element| element < pivot } # left aura les valeurs retournées par la condition si cela est vrai, right aura tous les autres > pivot
+  
+    return *quicksort(left), pivot, *quicksort(right)
+  end
+  
+ 
+  sorted_arr = quicksort(arr)
+  puts sorted_arr.join(' ')
 
